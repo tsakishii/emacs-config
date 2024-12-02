@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (defun kw/org-mode-setup ()
   "My personal org mode setup."
   (org-indent-mode t)
