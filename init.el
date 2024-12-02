@@ -35,16 +35,6 @@
 
 (add-to-list 'load-path '"~/.emacs.d/modules")
 
-;; fonts configuration
-(defvar kw/font-sizes 110)
-
-(defun kw/font-face ()
-  "Setup all fonts to Hack font."
-  (set-face-attribute 'default nil
-          :font "Hack" :height kw/font-sizes)
-  (set-face-attribute 'fixed-pitch nil
-          :font "Hack" :height kw/font-sizes))
-
 ;; initialize package source
 (require 'package)
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
