@@ -38,6 +38,10 @@
 ;; Set the right directory to store the native comp cache
 (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
 
+
+(require 'kw-package)
+(require 'kw-git)
+
 (require 'kw-core)
 (require 'kw-dev)
 (require 'kw-dired)
