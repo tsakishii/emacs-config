@@ -66,21 +66,6 @@
   :custom
   (sgml-basic-offset 2))
 
-(use-package rustic
-  :bind
-  (:map rustic-mode-map
-        ("M-j" . lsp-ui-imenu)
-        ("M-?" . lsp-find-references))
-  :config
-  (require 'lsp-rust)
-  (setq rustic-lsp-server 'rust-analyzer)
-  (setq rustic-analyzer-command '("~/.cargo/bin/rust-analyzer"))
-  (setq rust-indent-offset 4))
-
-(use-package cargo-mode
-  :config
-  (add-hook 'rustic-mode-hook #'cargo-minor-mode))
-
 (use-package python
   :mode
   ("\\.py\\'" . python-mode)
