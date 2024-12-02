@@ -11,14 +11,12 @@
   (setq delete-by-moving-to-trash t)
   (setq dired-hide-details-hide-symlink-targets nil)
   (setq dired-dwim-target t)
-  (define-key dired-mode-map (kbd "f") 'dired-single-buffer)
-  (define-key dired-mode-map (kbd "b") 'dired-single-up-directory)
+  (setq dired-kill-when-opening-new-dired-buffer t)
+  (define-key dired-mode-map (kbd "b") 'dired-up-directory)
   (add-hook 'dired-mode-hook
       (lambda ()
         (interactive)
         (dired-hide-details-mode 1))))
-
-(use-package dired-single)
 
 (use-package nerd-icons-dired
   :config
