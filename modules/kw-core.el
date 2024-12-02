@@ -88,8 +88,6 @@
   :init
   (savehist-mode))
 
-(use-package htmlize)
-
 (use-package windmove
   :config
   (global-set-key (kbd "S-<left>") 'windmove-left)
@@ -103,6 +101,8 @@
   (setq-default pdf-view-display-size 'fit-width)
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
+(use-package htmlize)
 (use-package sudo-edit)
+(use-package diminish)
 
 (provide 'kw-core)
