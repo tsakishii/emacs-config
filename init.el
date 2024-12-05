@@ -11,7 +11,8 @@
 ;;; Commentary:
 
 ;; This is my current Emacs configuration
-;; Keep in mind that the configuration works with GNU Emacs 27+
+;; Keep in mind that the configuration was tested and works
+;; with GNU Emacs 29+
 
 ;;; License:
 
