@@ -1,10 +1,9 @@
-;;; init.el --- kiwib0y's Emacs configuration
-
+;;; init.el --- tsakishii -*- lexical-binding: t -*-
 ;; Copyright 2021-present, All rights reserved
 ;; Code licensed under the GNU GPL v.3 license
 
-;; Author: kiwib0y
-;; URL: https://github.com/kiwib0y/emacs-config
+;; Author: tsakishii
+;; URL: https://github.com/tsakishii/emacs-config
 
 ;; This file is not part of GNU Emacs.
 
@@ -38,7 +37,7 @@
 
 ;; Set the right directory to store the native comp cache
 (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
-
+(setq debug-on-error t)
 
 (require 'kw-package)
 (require 'kw-git)
