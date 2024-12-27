@@ -1,17 +1,14 @@
-(require 'package)
-
-(setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
+(setq package-install-upgrade-built-in t)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("elpa" . "https://elpa.gnu.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")))
+                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
+;;; use-package setup
 (package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
 
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
+(eval-when-compile (require 'use-package))
+(setq use-package-verbose t
+      native-comp-async-report-warnings-errors nil)
 
 (setq use-package-always-ensure t)
 
