@@ -78,6 +78,7 @@
 (use-package multiple-cursors
   :config
   (global-set-key (kbd "C-c c m") 'mc/edit-lines))
+
 (use-package good-scroll
   :config
   (global-set-key (kbd "C-v") #'good-scroll-up)

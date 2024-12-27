@@ -1,7 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package swiper)
-(use-package counsel)
+(use-package counsel
+  :ensure t)
 
 (use-package ivy
   :diminish ivy-mode
