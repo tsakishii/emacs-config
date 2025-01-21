@@ -12,7 +12,7 @@ Enjoy and feel free to add on new content.
 
 1. Download from the OG repo: git clone [[git://git.savannah.gnu.org/emacs.git]].
 2. Run the =./autogen.sh= script.
-3. Run the =./configure= script with flags =--with-native-compilation=, =--with-json= and =--with-x=.
+3. Run the =./configure= script with flags =--with-native-compilation=, =--with-json= and =--with-x=, if using wayland go for =--with-pgtk=..
 4. Run the =make install= to install it. You could add the =-j[N]= flag if you want to use more cores.
 
 
