@@ -15,10 +15,4 @@
   :after projectile
   :config (counsel-projectile-mode))
 
-(use-package magit
-  :bind ("C-x g" . magit-status)
-  :commands (magit-status magit-get-current-branch)
-  :config
-  (add-hook 'git-commit-mode-hook 'goto-address-mode))
-
 (provide 'kw-projects)

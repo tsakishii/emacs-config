@@ -47,16 +47,18 @@
 (with-eval-after-load 'js
   (define-key js-mode-map (kbd "M-.") nil))
 
+(defun kw-web-mode-config ()
+  (setq web-mode-script-padding 2
+        web-mode-style-padding 2
+        web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2))
+
 (use-package web-mode
   :defer t
   :mode ("\\.html\\'"
          "\\.css\\'")
-  :config
-  (setq web-mode-script-padding 2)
-  (setq web-mode-style-padding 2)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  :config (kw-web-mode-config))
 
 (use-package sgml-mode
   :hook
@@ -65,21 +67,6 @@
   (html-mode . sgml-name-8bit-mode)
   :custom
   (sgml-basic-offset 2))
-
-(use-package rustic
-  :bind
-  (:map rustic-mode-map
-        ("M-j" . lsp-ui-imenu)
-        ("M-?" . lsp-find-references))
-  :config
-  (require 'lsp-rust)
-  (setq rustic-lsp-server 'rust-analyzer)
-  (setq rustic-analyzer-command '("~/.cargo/bin/rust-analyzer"))
-  (setq rust-indent-offset 4))
-
-(use-package cargo-mode
-  :config
-  (add-hook 'rustic-mode-hook #'cargo-minor-mode))
 
 (use-package python
   :mode
@@ -113,8 +100,7 @@
   :config
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'company-mode)
-  (add-hook 'clojure-mode-hook #'subword-mode)
-  (require 'flycheck-clj-kondo))
+  (add-hook 'clojure-mode-hook #'subword-mode))
 
 (use-package inf-clojure
   :config
@@ -130,12 +116,15 @@
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode))
 
+(defun kw-go-mode-config ()
+  (setq indent-tabs-mode nil
+        tab-width 4))
+
 (use-package go-mode
   :hook
   (go-mode . lsp-deferred)
   :config
-  (setq indent-tabs-mode nil
-        tab-width 4))
+  (kw-go-mode-config))
 
 (use-package terraform-mode
   :config

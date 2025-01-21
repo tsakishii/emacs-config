@@ -53,6 +53,16 @@
 ;; set UTF-8 for easy cross-platform use
 (set-default-coding-systems 'utf-8)
 
+;; fonts configuration
+(defvar kw/font-sizes 110)
+
+(defun kw/font-face ()
+  "Setup all fonts to Hack font."
+  (set-face-attribute 'default nil
+          :font "Hack" :height kw/font-sizes)
+  (set-face-attribute 'fixed-pitch nil
+          :font "Hack" :height kw/font-sizes))
+
 ;; daemon frame setup
 (if (daemonp)
     (add-hook 'after-make-frame-functions
@@ -68,6 +78,7 @@
 (use-package multiple-cursors
   :config
   (global-set-key (kbd "C-c c m") 'mc/edit-lines))
+
 (use-package good-scroll
   :config
   (global-set-key (kbd "C-v") #'good-scroll-up)
@@ -77,8 +88,6 @@
 (use-package savehist
   :init
   (savehist-mode))
-
-(use-package htmlize)
 
 (use-package windmove
   :config
@@ -92,5 +101,10 @@
   (pdf-tools-install)
   (setq-default pdf-view-display-size 'fit-width)
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
+
+(use-package tldr)
+(use-package htmlize)
+(use-package sudo-edit)
+(use-package diminish)
 
 (provide 'kw-core)

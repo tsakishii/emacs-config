@@ -1,17 +1,17 @@
-;;; init.el --- kiwib0y's Emacs configuration
-
+;;; init.el --- tsakishii -*- lexical-binding: t -*-
 ;; Copyright 2021-present, All rights reserved
 ;; Code licensed under the GNU GPL v.3 license
 
-;; Author: kiwib0y
-;; URL: https://github.com/kiwib0y/emacs-config
+;; Author: tsakishii
+;; URL: https://github.com/tsakishii/emacs-config
 
 ;; This file is not part of GNU Emacs.
 
 ;;; Commentary:
 
 ;; This is my current Emacs configuration
-;; Keep in mind that the configuration works with GNU Emacs 27+
+;; Keep in mind that the configuration was tested and works
+;; with GNU Emacs 29+
 
 ;;; License:
 
@@ -35,44 +35,12 @@
 
 (add-to-list 'load-path '"~/.emacs.d/modules")
 
-;; fonts configuration
-(defvar kw/font-sizes 110)
-
-(defun kw/font-face ()
-  "Setup all fonts to Hack font."
-  (set-face-attribute 'default nil
-          :font "Hack" :height kw/font-sizes)
-  (set-face-attribute 'fixed-pitch nil
-          :font "Hack" :height kw/font-sizes))
-
-;; initialize package source
-(require 'package)
-(setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")))
-
-
-;; check package sources
-(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
-
-(package-initialize)
-;; update the package metadata if the local cache is missing
-(unless package-archive-contents
-  (package-refresh-contents))
-(eval-when-compile
-  (require 'use-package))
-
-;; initialize use-package on non-Linux platforms
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-
-;; ensure always -> I'm on emacs 30 and it's a native compile
-(setq use-package-always-ensure t)
-
 ;; Set the right directory to store the native comp cache
 (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
+(setq debug-on-error t)
+
+(require 'kw-package)
+(require 'kw-git)
 
 (require 'kw-core)
 (require 'kw-dev)
