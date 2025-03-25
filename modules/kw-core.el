@@ -20,10 +20,6 @@
 (setq make-backup-files nil)
 (setq vc-follow-symlinks t)
 
-(setq custom-file
-      (expand-file-name "~/.emacs.d/custom/custom.el" user-emacs-directory))
-(load custom-file 'noerror 'nomessage)
-
 
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)

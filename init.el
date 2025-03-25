@@ -31,9 +31,12 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-
-
 (add-to-list 'load-path '"~/.emacs.d/modules")
+
+;; Custom file setup
+(setq custom-file
+      (expand-file-name "~/.emacs.d/custom/custom.el" user-emacs-directory))
+(load custom-file 'noerror 'nomessage)
 
 ;; Set the right directory to store the native comp cache
 (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
@@ -47,7 +50,6 @@
 (require 'kw-dired)
 (require 'kw-eshell)
 (require 'kw-interface)
-(require 'kw-modeline)
 (require 'kw-org)
 (require 'kw-prog-conf)
 (require 'kw-projects)
