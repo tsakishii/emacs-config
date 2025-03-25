@@ -5,7 +5,7 @@
 (use-package minions
   :hook (doom-modeline-mode . minions-mode))
 
-(use-package doom-modeline
+(use-package doom-modeline nil
   :hook (after-init . doom-modeline-mode)
   :custom-face
   (mode-line ((t (:height 1.0))))
