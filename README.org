@@ -1,5 +1,5 @@
 #+title: Emacs configuration
-#+author: KiwiB0y
+#+author: tsakishii
 #+options: num:nil date:nil toc:nil
 
 * Intro
