@@ -4,6 +4,6 @@
   :ensure t
   :config
   (setq modus-themes-scale-headings t)
-  (load-theme 'modus-vivendi-tinted))
+  (load-theme 'modus-vivendi))
 
-(provide 'kw-theme)
+(provide 'init-theme)

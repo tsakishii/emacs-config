@@ -83,4 +83,4 @@
 (setq org-agenda-files (list org-directory))
 (add-to-list 'org-agenda-files org-directory)
 
-(provide 'kw-org)
+(provide 'init-org)

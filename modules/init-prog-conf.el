@@ -36,15 +36,10 @@
   (lsp-ui-doc-delay 0.8)
   (lsp-ui-sideline-show-hover nil))
 
-(use-package lsp-treemacs
-  :after lsp-mode)
-
-(use-package lsp-ivy
-  :after lsp-mode)
-
 (setq lsp-enable-links nil)
 
 (use-package dap-mode
+  :ensure t
   :after lsp-mode
   :config (dap-auto-configure-mode))
 
@@ -94,4 +89,4 @@
           (lambda()
             (define-key prog-mode-map (kbd "M-;") #'comment-or-uncomment-region)))
 
-(provide 'kw-prog-conf)
+(provide 'init-prog-conf)

@@ -6,4 +6,4 @@
   :diminish magit-auto-revert-mode
   :bind ("C-x g" . magit-status))
 
-(provide 'kw-git)
+(provide 'init-git)

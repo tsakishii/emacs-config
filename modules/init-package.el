@@ -16,4 +16,4 @@
 
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
-(provide 'kw-package)
+(provide 'init-package)

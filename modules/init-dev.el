@@ -14,18 +14,6 @@
   :config
   (setq svelte-basic-offset 2))
 
-(use-package vue-mode
-  :mode "\\.vue\\'"
-  :hook
-  (vue-mode . lsp-deferred)
-  :config
-  (setq mmm-submode-decoration-level 0)
-  (setq-default vue-html-extra-indent 2)
-  (setq-default vue-indent-level 2))
-
-(use-package vue-html-mode
-  :defer t)
-
 (use-package typescript-mode
   :mode "\\.tsx?\\'"
   :hook (typescript-mode . lsp-deferred)
@@ -68,6 +56,15 @@
   :custom
   (sgml-basic-offset 2))
 
+(use-package eglot
+  :bind (:map eglot-mode-map
+              ("C-c C-a" . eglot-code-actions)
+              ("C-c C-r" . eglot-rename))
+  :hook (((c-mode c++-mode) . eglot-ensure)
+         ((js2-mode typescript-mode) . eglot-ensure)
+         (zig-mode . eglot-ensure)
+         (python-mode . eglot-ensure)))
+
 (use-package python
   :mode
   ("\\.py\\'" . python-mode)
@@ -81,13 +78,6 @@
   :config
   (setq python-indent-offset 4)
   (setq python-indent-guess-indent-offset nil))
-
-(use-package lsp-pyright
-  :mode
-  ("\\.py\\'" . python-mode)
-  :hook (python-mode . (lambda ()
-                          'lsp-pyright
-                          (lsp-deferred))))
 
 (use-package pyvenv
   :after (eglot)
@@ -116,15 +106,15 @@
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode))
 
-(defun kw-go-mode-config ()
-  (setq indent-tabs-mode nil
-        tab-width 4))
+(defun ts/go-mode-config ()
+  (setq indent-tabs-mode nil)
+  (setq tab-width 4))
 
 (use-package go-mode
   :hook
   (go-mode . lsp-deferred)
   :config
-  (kw-go-mode-config))
+  (ts/go-mode-config))
 
 (use-package terraform-mode
   :config
@@ -138,7 +128,7 @@
 
 ;; json setup
 (use-package json-mode
-  :mode "\\.json\\'")
+  :mode "\\.json$\\'")
 
 (use-package dockerfile-mode)
 
@@ -150,4 +140,4 @@
   :init
   (setq markdown-command "markdown"))
 
-(provide 'kw-dev)
+(provide 'init-dev)
