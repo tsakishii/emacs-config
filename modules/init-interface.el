@@ -4,9 +4,10 @@
   :ensure t
   :custom
   (vertico-cycle t)
-  (vertico-resize t)
+  (vertico-resize nil)
   (add-to-list 'vertico-multiform-categories '(embark-keybinding grid))
   (vertico-multiform-mode)
+  (vertico-count 7)
   :init
   (vertico-mode t)
   :config
@@ -32,6 +33,7 @@
   :ensure t
   :bind
   (("C-." . embark-act)
+   ("C-;" . embark-dwim)
    :map minibuffer-local-map
    ("C-," . embark-act-all))
   :init
@@ -42,7 +44,7 @@
   ;(setq embark-prompter 'embark-completing-read-prompter)
   :custom
   (embark-indicators
-   '(embark-minimal-indicator  ; default is embark-mixed-indicator
+   '(embark-minimal-indicator
      embark-highlight-indicator
      embark-isearch-highlight-indicator)))
 
@@ -55,7 +57,6 @@
   :init (which-key-mode)
   :diminish which-key-mode
   :config
-  (setq which-key-idle-delay 0.6)
-  (setq which-key-max-display-columns 3))
+  (setq which-key-idle-delay 0.6))
 
 (provide 'init-interface)
