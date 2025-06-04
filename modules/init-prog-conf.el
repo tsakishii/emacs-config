@@ -20,10 +20,7 @@
   :hook ((js2-jsx-mode
           svelte-mode
           js-mode
-          typescript-mode
-          c-mode
-          c++-mode
-          python-mode) . lsp-deferred)
+          typescript-mode) . lsp-deferred)
   :custom
   (lsp-headerline-breadcrumb-enable nil))
 
@@ -36,19 +33,12 @@
   (lsp-ui-doc-delay 0.8)
   (lsp-ui-sideline-show-hover nil))
 
-(use-package lsp-treemacs
-  :after lsp-mode)
-
-(use-package lsp-ivy
-  :after lsp-mode)
-
 (setq lsp-enable-links nil)
 
 (use-package dap-mode
+  :ensure t
   :after lsp-mode
   :config (dap-auto-configure-mode))
-
-(use-package eglot)
 
 (use-package paredit
   :diminish paredit-mode
@@ -59,39 +49,8 @@
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'lisp-mode-hook #'paredit-mode))
 
-(use-package company
-  :after lsp-mode
-  :hook (prog-mode . company-mode)
-  :bind
-  (:map company-active-map
-        ("<tab>" . company-complete-selection)
-        ("TAB" . company-indent-or-complete-common)
-        ("C-n" . company-select-next)
-        ("C-p" . company-select-previous))
-  (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common)
-        ("TAB" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 2)
-  (company-idle-delay 0.1)
-  (diminish 'company-mode))
-
-(use-package company-box
-  :hook (company-mode . company-box-mode))
-
-(use-package company-prescient
-  :after company
-  :config
-  (company-prescient-mode 1))
-
-(use-package rainbow-mode)
-
-(use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode #'rainbow-delimiters-mode))
-
 (add-hook 'prog-mode-hook
           (lambda()
             (define-key prog-mode-map (kbd "M-;") #'comment-or-uncomment-region)))
 
-(provide 'kw-prog-conf)
+(provide 'init-prog-conf)

@@ -42,17 +42,16 @@
 (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory))
 (setq debug-on-error t)
 
-(require 'kw-package)
-(require 'kw-git)
+(require 'init-package)
+(require 'init-git)
 
-(require 'kw-core)
-(require 'kw-dev)
-(require 'kw-dired)
-(require 'kw-eshell)
-(require 'kw-interface)
-(require 'kw-org)
-(require 'kw-prog-conf)
-(require 'kw-projects)
-(require 'kw-theme)
+(require 'init-core)
+(require 'init-dev)
+(require 'init-dired)
+(require 'init-eshell)
+(require 'init-interface)
+(require 'init-org)
+(require 'init-prog-conf)
+(require 'init-theme)
 
 ;;; init.el ends here

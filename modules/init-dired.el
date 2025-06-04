@@ -12,11 +12,7 @@
   (setq dired-hide-details-hide-symlink-targets nil)
   (setq dired-dwim-target t)
   (setq dired-kill-when-opening-new-dired-buffer t)
-  (define-key dired-mode-map (kbd "b") 'dired-up-directory)
-  (add-hook 'dired-mode-hook
-      (lambda ()
-        (interactive)
-        (dired-hide-details-mode 1))))
+  (define-key dired-mode-map (kbd "b") 'dired-up-directory))
 
 (use-package nerd-icons-dired
   :config
@@ -25,4 +21,4 @@
 (use-package emojify
   :hook (markdown-mode . emojify-mode))
 
-(provide 'kw-dired)
+(provide 'init-dired)

@@ -11,4 +11,4 @@
   :config
   (eshell-syntax-highlighting-global-mode +1))
 
-(provide 'kw-eshell)
+(provide 'init-eshell)

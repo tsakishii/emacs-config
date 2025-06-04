@@ -21,10 +21,10 @@
 (setq vc-follow-symlinks t)
 
 
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq tab-always-indent 'complete)
-(setq indent-line-function 'insert-tab)
+
 
 (defvar display-line-numbers-type)
 (setq display-line-numbers-type 'relative)
@@ -103,4 +103,4 @@
 (use-package sudo-edit)
 (use-package diminish)
 
-(provide 'kw-core)
+(provide 'init-core)
