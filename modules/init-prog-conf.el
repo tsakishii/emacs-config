@@ -3,6 +3,12 @@
 (use-package flycheck)
 
 (use-package lsp-mode
+  :commands lsp
+  :config
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-enable-symbol-highlighting nil))
+
+(use-package lsp-mode
   :defer t
   :commands lsp
   :init
@@ -20,8 +26,11 @@
   :hook ((js2-jsx-mode
           svelte-mode
           js-mode
-          typescript-mode) . lsp-deferred)
+          js2-mode
+          typescript-mode
+          go-mode) . lsp-deferred)
   :custom
+  (lsp-completion-provider :none)
   (lsp-headerline-breadcrumb-enable nil))
 
 (use-package lsp-ui
