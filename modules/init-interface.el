@@ -14,6 +14,21 @@
   (setq enable-recursive-minibuffers t)
   (minibuffer-depth-indicate-mode 1))
 
+(use-package marginalia
+  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+  ;; available in the *Completions* buffer, add it to the
+  ;; `completion-list-mode-map'.
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+
+  ;; The :init section is always executed.
+  :init
+
+  ;; Marginalia must be activated in the :init section of use-package such that
+  ;; the mode gets enabled right away. Note that this forces loading the
+  ;; package.
+  (marginalia-mode))
+
 (use-package orderless
   :ensure t
   :after vertico
@@ -28,6 +43,22 @@
   ("C-s" . consult-line)
   :custom
   (completion-in-region-function #'consult-completion-in-region))
+
+(use-package corfu
+  :ensure t
+  :hook (prog-mode . corfu-mode)
+  :custom
+  (corfu-auto t)        ; Only use `corfu' when calling `completion-at-point' or
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.6)
+  (corfu-min-width 80)
+  (corfu-max-width corfu-min-width)       ; Always have the same width
+  (corfu-count 14)
+  (corfu-scroll-margin 4)
+  (corfu-cycle nil)
+  :init
+  (corfu-history-mode)
+  (corfu-popupinfo-mode))
 
 (use-package embark
   :ensure t
