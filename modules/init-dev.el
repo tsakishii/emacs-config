@@ -1,14 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-(use-package lsp-mode
-  :hook ((svelte-mode . lsp-deferred)
-         (js2-mode . lsp-deferred)
-         (typescript-mode . lsp-deferred))
-  :commands lsp
-  :config
-  (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-enable-symbol-highlighting nil))
-
 (use-package lsp-tailwindcss
   :after lsp-mode
   :init
@@ -122,8 +113,7 @@
 
 (use-package go-mode
   :hook
-  ((go-mode . ts/go-mode-config)
-   (go-mode . lsp-deferred)))
+  (go-mode . ts/go-mode-config))
 
 (use-package terraform-mode
   :config
