@@ -42,10 +42,6 @@
                 image-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; make background transparent
-(set-frame-parameter nil 'alpha-background 78)
-(add-to-list 'default-frame-alist '(alpha-background . 78))
-
 ;; set UTF-8 for easy cross-platform use
 (set-default-coding-systems 'utf-8)
 
