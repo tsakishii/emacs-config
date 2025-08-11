@@ -125,6 +125,9 @@
   :config
    (define-key yaml-mode-map (kbd "C-o") 'newline-and-indent))
 
+(use-package rasi-mode
+  :mode "\\.rasi\\'")
+
 ;; json setup
 (use-package json-mode
   :mode "\\.json$\\'")
