@@ -94,6 +94,7 @@
   (setq-default pdf-view-display-size 'fit-width)
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
+(use-package password-store)
 (use-package tldr)
 (use-package htmlize)
 (use-package sudo-edit)
